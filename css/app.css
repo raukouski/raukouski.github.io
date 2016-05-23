@@ -165,6 +165,9 @@ img {
   width: 24%;
   cursor: pointer;
  }
+ .filter td:first-child {
+   border-left: 6px solid #04819E;
+ }
  .filter td:hover {
   color: #FFdc60;
  }
