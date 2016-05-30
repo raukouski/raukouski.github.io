@@ -50,16 +50,21 @@ function DealListCtrl ($scope) {
 			    }
 			savedSettings($scope.deals);
 		}	
+		if($scope.dealsText.indexOf(textInput.value) != -1) {
+			alert('Это уже есть в списке!');
+		}
 	}
 	$scope.checkedAllCtrl = function($event) {
 		if ($event.currentTarget.checked == true) {
 			for (var i = 0; i < $scope.deals.length; i++) {
 				$scope.deals[i].done = true;
 			}
+			$event.currentTarget.nextElementSibling.title="Отметить всё незавершённым!";
 		} else {
 			for (var i = 0; i < $scope.deals.length; i++) {
 				$scope.deals[i].done = false;		
 			}
+			$event.currentTarget.nextElementSibling.title="Отметить всё завершённым!";
 		}
 		savedSettings($scope.deals);
 	}
