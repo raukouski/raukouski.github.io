@@ -51,7 +51,7 @@ function DealListCtrl ($scope) {
 			savedSettings($scope.deals);
 		}	
 		if($scope.dealsText.indexOf(textInput.value) != -1) {
-			alert('Это уже есть в списке! ');
+			alert('Это уже есть в списке!');
 		}
 	}
 	$scope.checkedAllCtrl = function($event) {
@@ -102,17 +102,21 @@ function DealListCtrl ($scope) {
 		}
 		savedSettings($scope.deals, $scope.dealsFilter);
 	}
-	$scope.all = function() {
+	$scope.all = function($event) {
 		$scope.dealsFilter = 'all';
 		savedSettings($scope.deals);
+		document.getElementById('closeAll').title='Удалить всё!';
+		
 	}
 	$scope.notDone = function() {
 		$scope.dealsFilter = false;
 		savedSettings($scope.deals);
+		document.getElementById('closeAll').title='Удалить незавершённые!';
 	}
 	$scope.done = function() {
 		$scope.dealsFilter = true;
 		savedSettings($scope.deals);
+		document.getElementById('closeAll').title='Удалить завершённые!';
 	}
 	$scope.closeAll = function() {
 		if ($scope.dealsFilter == 'all') {
